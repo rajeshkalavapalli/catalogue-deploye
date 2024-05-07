@@ -4,10 +4,6 @@ pipeline {
             label 'AGENT'
         }
     }
-    // environment { 
-    //     packageVersion = ""
-    //     nexusUrl = "172.31.34.109:8081"
-    // }
 
     options {
         timeout(time: 1, unit: 'HOURS') 
@@ -15,29 +11,25 @@ pipeline {
     }
 
     parameters {
-        string(name: 'version', defaultValue: '', description: 'what is the artifact version ?')
-        string(name: 'environment', defaultValue: 'dev', description: 'what is the environment?')
-
-        
+        string(name: 'version', defaultValue: '', description: 'What is the artifact version?')
+        string(name: 'environment', defaultValue: 'dev', description: 'What is the environment?')
     }
     
     stages {
-        stage ('print version') {
+        stage ('Print Version') {
             steps {
                 sh """
-                    echo "version: ${params.version}"
-                    echo "environment: ${params.environment}"
-
+                    echo "Version: ${params.version}"
+                    echo "Environment: ${params.environment}"
                 """
             }
         }
 
-        stage ('init') {
+        stage ('Initialize Terraform') {
             steps {
                 sh """
-                    cd terraform 
-                    terraform init --backend-config= ${params.version}/backend.tf -reconfigure
-
+                    cd terraform
+                    terraform init --backend-config=${params.version}/backend.tf reconfigure
                 """
             }
         }
@@ -56,6 +48,5 @@ pipeline {
         }
     }
 }
-
 
 
