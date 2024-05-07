@@ -31,8 +31,18 @@ pipeline {
                 """
             }
         }
+    }
 
-        
+     stages {
+        stage ('print version') {
+            steps {
+                sh """
+                    cd terraform 
+                    terraform init --backend-config= ${params.version}/backend.tf -reconfigure
+
+                """
+            }
+        }
     }
     post { 
         always { 
