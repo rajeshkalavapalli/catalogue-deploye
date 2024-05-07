@@ -16,7 +16,7 @@ pipeline {
 
     parameters {
         string(name: 'version', defaultValue: '', description: 'what is the artifact verionb?')
-        string(name: 'environment', defaultValue: '', description: 'what is the environment?')
+        string(name: 'environment', defaultValue: 'dev', description: 'what is the environment?')
 
         
     }
