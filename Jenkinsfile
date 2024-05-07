@@ -31,9 +31,7 @@ pipeline {
                 """
             }
         }
-    }
 
-     stages {
         stage ('init') {
             steps {
                 sh """
@@ -44,6 +42,7 @@ pipeline {
             }
         }
     }
+
     post { 
         always { 
             echo 'I will always execute!'
