@@ -15,7 +15,7 @@ pipeline {
     }
 
     parameters {
-        string(name: 'version', defaultValue: '', description: 'what is the artifact verionb?')
+        string(name: 'version', defaultValue: '', description: 'what is the artifact version ?')
         string(name: 'environment', defaultValue: 'dev', description: 'what is the environment?')
 
         
