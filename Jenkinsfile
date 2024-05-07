@@ -34,7 +34,7 @@ pipeline {
     }
 
      stages {
-        stage ('print version') {
+        stage ('init') {
             steps {
                 sh """
                     cd terraform 
