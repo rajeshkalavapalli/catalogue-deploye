@@ -30,3 +30,7 @@ variable "environment" {
 variable "zone_name" {
   default = "bigmatrix.in"
 }
+
+variable "app_version" {
+  
+}
