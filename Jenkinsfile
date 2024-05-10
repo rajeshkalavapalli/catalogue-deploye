@@ -46,25 +46,16 @@ pipeline {
             }
         }
 
-        // stage ('apply') {
-        //     steps {
-        //         sh """
-        //             cd terraform
-        //             terraform apply -var-file=${params.environment}/${params.environment}.tfvars -var="app_version=${params.version}" -auto-approve
-                    
-        //         """
-        //     }
-        // }
-
-          stage ('destroy') {
+        stage ('apply') {
             steps {
                 sh """
                     cd terraform
-                    terraform destroy -var-file=${params.environment}/${params.environment}.tfvars -var="app_version=${params.version}" -auto-approve
+                    terraform apply -var-file=${params.environment}/${params.environment}.tfvars -var="app_version=${params.version}" -auto-approve
                     
                 """
             }
         }
+        
     }
 
     post { 
