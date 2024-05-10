@@ -1,4 +1,4 @@
-bucket = "vpc-p"
-key    = "catalogue"
+bucket = "bigmatrix-state-dev"
+key    = "catalogue-dev"
 region = "us-east-1"
-dynamodb_table = "new_t"
+dynamodb_table = "bigmatrix-locking-dev"
