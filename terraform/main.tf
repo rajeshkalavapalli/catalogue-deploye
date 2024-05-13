@@ -1,7 +1,7 @@
 module "catalogue" {
   source                = "git::https://github.com/rajeshkalavapalli/terraform-roboshop-app.git?ref=main"
   vpc_id                = data.aws_ssm_parameter.vpc_id.value
-  component_sg_id       = data.aws_ssm_parameter.user_sg_id.value
+  component_sg_id       = data.aws_ssm_parameter.catalogue_sg_id.value
   private_subnet_ids    = split(",", data.aws_ssm_parameter.private_subnet_ids.value) #list of private subnet ids 
   iam_instance_profile  = var.iam_instance_profile
   project_name          = var.project_name
@@ -12,4 +12,5 @@ module "catalogue" {
   app_alb_listenere_arn = data.aws_ssm_parameter.app_alb_listenere_arn.value
   rule_priority         = 20
   app_version           = var.app_version
+  
 }
